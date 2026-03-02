@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Interactive resume homepage for Maksym Brailovskyi — IT + Applied Mathematics. Projects, experience, and results." />
+  <title>Maksym Brailovskyi | Interactive Resume</title>
+
+  <style>
+    :root{
+      --bg: #0b1220;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.085);
+      --text: #eaf0ff;
+      --muted: rgba(234,240,255,.74);
+      --line: rgba(234,240,255,.14);
+      --brand: #6ee7ff;
+      --brand2:#a78bfa;
+      --ok:#34d399;
+
+      --radius: 18px;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --max: 1100px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(110,231,255,.18), transparent 60%),
+        radial-gradient(900px 600px at 85% 25%, rgba(167,139,250,.16), transparent 55%),
+        radial-gradient(900px 700px at 45% 95%, rgba(52,211,153,.10), transparent 55%),
+        var(--bg);
+      line-height: 1.45;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible{
+      outline: 3px solid rgba(110,231,255,.55);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 28px 18px 54px; }
+
+    /* Top nav */
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 14px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+    }
+    .brand{
+      display:flex; align-items:center; gap: 10px;
+      min-width: 220px;
+    }
+    .dot{
+      width: 11px; height: 11px; border-radius: 99px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 0 0 6px rgba(110,231,255,.09);
+    }
+    .brand b{ letter-spacing: .2px; }
+    nav{ display:flex; flex-wrap:wrap; gap: 8px; justify-content:flex-end; }
+    .navlink{
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--muted);
+    }
+    .navlink:hover{ border-color: var(--line); color: var(--text); background: rgba(255,255,255,.04); }
+
+    /* Hero */
+    .hero{
+      margin-top: 18px;
+      padding: 30px 20px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(500px 220px at 20% 0%, rgba(110,231,255,.16), transparent 60%),
+        radial-gradient(520px 260px at 95% 15%, rgba(167,139,250,.14), transparent 55%);
+      pointer-events:none;
+    }
+    .hero-inner{
+      position: relative;
+      display:grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 880px){ .hero-inner{ grid-template-columns: 1fr; } }
+
+    .kicker{
+      font-family: var(--mono);
+      color: rgba(234,240,255,.78);
+      font-size: 13px;
+      letter-spacing: .3px;
+      margin: 0 0 10px;
+    }
+
+    h1{
+      margin: 0 0 10px;
+      font-size: clamp(32px, 4.2vw, 52px);
+      line-height: 1.08;
+      letter-spacing: -.6px;
+    }
+    .subtitle{
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 16.5px;
+      max-width: 62ch;
+    }
+
+    .tags{
+      display:flex; flex-wrap: wrap; gap: 8px;
+      margin: 0 0 18px;
+      padding: 0;
+      list-style: none;
+    }
+    .tag{
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 999px;
+      color: rgba(234,240,255,.85);
+      font-size: 13px;
+    }
+
+    .cta-row{
+      display:flex; flex-wrap: wrap; gap: 10px;
+      margin-top: 4px;
+      align-items: center;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 650;
+      letter-spacing: .2px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(110,231,255,.35); }
+    .btn.primary{
+      border-color: transparent;
+      background: linear-gradient(135deg, rgba(110,231,255,.92), rgba(167,139,250,.88));
+      color: #06101b;
+      box-shadow: 0 12px 40px rgba(110,231,255,.20);
+    }
+    .btn.primary:hover{ border-color: rgba(255,255,255,.35); }
+    .btn small{ font-weight: 600; opacity:.9; }
+
+    .mini{
+      color: rgba(234,240,255,.72);
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    /* Right panel (proof/metrics) */
+    .proof{
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      padding: 14px;
+    }
+    .proof h2{
+      margin: 0 0 10px;
+      font-size: 14px;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      color: rgba(234,240,255,.78);
+    }
+    .meter{
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      background: rgba(0,0,0,.18);
+    }
+    .meter .row{ display:flex; align-items:center; justify-content:space-between; gap: 10px; margin-bottom: 10px; }
+    .meter .value{ font-family: var(--mono); color: rgba(234,240,255,.92); }
+    .bar{
+      height: 10px;
+      background: rgba(255,255,255,.08);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .fill{
+      height: 100%;
+      width: 35%;
+      background: linear-gradient(90deg, var(--brand), var(--ok));
+      border-radius: 999px;
+      transition: width .25s ease;
+    }
+    .proof p{
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Sections */
+    .grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 980px){ .grid{ grid-template-columns: 1fr; } }
+
+    .card{
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      padding: 16px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.24);
+      min-height: 160px;
+    }
+    .card h3{ margin: 0 0 8px; font-size: 17px; }
+    .card p{ margin: 0 0 12px; color: var(--muted); font-size: 14.5px; }
+    .card a.inline{
+      display:inline-flex; align-items:center; gap: 8px;
+      color: rgba(234,240,255,.92);
+      font-weight: 650;
+    }
+    .card a.inline:hover{ text-decoration: underline; text-underline-offset: 3px; }
+
+    /* Featured strip */
+    .feature{
+      margin-top: 14px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      padding: 16px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .feature strong{ color: rgba(234,240,255,.95); }
+    .feature span{ color: var(--muted); }
+
+    footer{
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(234,240,255,.12);
+      color: rgba(234,240,255,.62);
+      font-size: 13px;
+      display:flex;
+      gap: 10px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+      clip: rect(0,0,0,0); white-space:nowrap; border:0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header aria-label="Primary">
+      <a class="brand" href="index.html">
+        <span class="dot" aria-hidden="true"></span>
+        <b>Maksym Brailovskyi</b>
+      </a>
+
+      <nav aria-label="Site">
+        <a class="navlink" href="experience.html">Experience</a>
+        <a class="navlink" href="portfolio.html">Portfolio</a>
+        <a class="navlink" href="contact.html">Contact</a>
+        <a class="navlink" href="assets/Maksym-Brailovskyi-Resume.pdf" download>Download PDF</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Homepage hero">
+        <div class="hero-inner">
+          <div>
+            <p class="kicker">IT + Applied Mathematics • Tallahassee, FL • Open to internships / entry-level</p>
+
+            <h1>Build secure, data-driven web systems that ship.</h1>
+
+            <!-- NOT a generic About Me: value proposition + keywords + proof -->
+            <p class="subtitle">
+              I turn messy requirements into clean implementations—combining <b>analytical</b> problem-solving with
+              practical web delivery. My work centers on performance, accessibility, SEO, and security basics, so
+              teams can
