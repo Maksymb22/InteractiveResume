@@ -305,4 +305,156 @@
             <p class="subtitle">
               I turn messy requirements into clean implementations - combining <b>analytical</b> problem-solving with
               practical web delivery. My work centers on performance, accessibility, SEO, and security basics, so
-              teams can
+              teams can launch confidently and iterate fast.
+            </p>
+
+            <ul class="tags" aria-label="Core strengths">
+              <li class="tag">Problem-solving</li>
+              <li class="tag">Ownership</li>
+              <li class="tag">Communication</li>
+              <li class="tag">Security-minded</li>
+              <li class="tag">Detail-oriented</li>
+            </ul>
+
+            <div class="cta-row" role="group" aria-label="Primary calls to action">
+              <a class="btn primary" href="portfolio.html" aria-label="View portfolio projects">
+                View portfolio <small>→</small>
+              </a>
+              <a class="btn" href="experience.html" aria-label="Read my experience">
+                See experience <small>→</small>
+              </a>
+              <button class="btn" type="button" id="demoBtn" aria-describedby="demoHelp">
+                Run quick demo <small>⟲</small>
+              </button>
+            </div>
+
+            <p class="mini" id="demoHelp">
+              Tip: “Run quick demo” updates the impact panel—small interaction, real signal.
+            </p>
+          </div>
+
+          <aside class="proof" aria-label="Impact panel">
+            <h2>Impact snapshot</h2>
+
+            <div class="meter" aria-live="polite">
+              <div class="row">
+                <span>Site reliability mindset</span>
+                <span class="value" id="proofA">Monitoring + basics</span>
+              </div>
+
+              <div class="row">
+                <span>SEO + performance focus</span>
+                <span class="value" id="proofB">Fast, crawlable</span>
+              </div>
+
+              <div class="row">
+                <span>Project delivery</span>
+                <span class="value" id="proofC">Shipped + iterated</span>
+              </div>
+
+              <div class="bar" aria-hidden="true"><div class="fill" id="fill"></div></div>
+
+              <p id="proofNote">
+                Concrete proof lives in the portfolio: screenshots, links, and write-ups.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="grid" aria-label="Homepage highlights">
+        <article class="card">
+          <h3>Portfolio: proof, not promises</h3>
+          <p>
+            Featured work includes web builds, SEO improvements, and problem-solving projects with clear outcomes,
+            tools used, and what I’d do next.
+          </p>
+          <a class="inline" href="portfolio.html">Browse projects →</a>
+        </article>
+
+        <article class="card">
+          <h3>Experience: technical + accountable</h3>
+          <p>
+            Roles that show reliability under pressure, collaboration, and delivery—plus web dev experience that
+            emphasizes responsive UI and accessibility.
+          </p>
+          <a class="inline" href="experience.html">Read experience →</a>
+        </article>
+
+        <article class="card">
+          <h3>What I’m optimizing for</h3>
+          <p>
+            Entry-level IT / web roles where I can contribute quickly: documentation, clean code, debugging,
+            and measurable improvements.
+          </p>
+          <a class="inline" href="contact.html">Let’s connect →</a>
+        </article>
+      </section>
+
+      <section class="feature" aria-label="Secondary call to action">
+        <div>
+          <strong>Hiring manager shortcut:</strong>
+          <span>Start with the portfolio, then skim experience for scope and responsibilities.</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn primary" href="portfolio.html">Portfolio first →</a>
+          <a class="btn" href="assets/Maksym-Brailovskyi-Resume.pdf" download>Download PDF</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© <span id="year"></span> Maksym Brailovskyi</span>
+      <span class="sr-only" id="a11yNote">This page is keyboard accessible and uses readable contrast.</span>
+      <span>Built as a static site (HTML/CSS/JS)</span>
+    </footer>
+  </div>
+
+  <script>
+    const year = document.getElementById('year');
+    year.textContent = new Date().getFullYear();
+
+    const demoBtn = document.getElementById('demoBtn');
+    const proofA = document.getElementById('proofA');
+    const proofB = document.getElementById('proofB');
+    const proofC = document.getElementById('proofC');
+    const fill = document.getElementById('fill');
+    const proofNote = document.getElementById('proofNote');
+
+    const states = [
+      {
+        a: "Security + recovery ready",
+        b: "SEO tuned + accessible",
+        c: "Owns delivery end-to-end",
+        w: "78%",
+        note: "Example: harden a site after an incident, then optimize structure + SEO."
+      },
+      {
+        a: "Logs, uptime, baselines",
+        b: "Performance-aware UI",
+        c: "Clear documentation",
+        w: "62%",
+        note: "I ship readable solutions that teammates can maintain."
+      },
+      {
+        a: "Risk-aware decisions",
+        b: "Structured content + keywords",
+        c: "Iterate with feedback",
+        w: "88%",
+        note: "Portfolio includes artifacts: links, screenshots, and short write-ups."
+      }
+    ];
+
+    let i = 0;
+    demoBtn.addEventListener('click', () => {
+      i = (i + 1) % states.length;
+      const s = states[i];
+      proofA.textContent = s.a;
+      proofB.textContent = s.b;
+      proofC.textContent = s.c;
+      fill.style.width = s.w;
+      proofNote.textContent = s.note;
+    });
+  </script>
+</body>
+</html>
