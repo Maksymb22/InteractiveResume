@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Experience page for Maksym Brailovskyi — web development, website recovery, SEO, leadership, and transferable experience." />
+  <title>Maksym Brailovskyi | Experience</title>
+  <style>
+    :root{
+      --bg: #0b1220;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.085);
+      --text: #eaf0ff;
+      --muted: rgba(234,240,255,.74);
+      --line: rgba(234,240,255,.14);
+      --brand: #6ee7ff;
+      --brand2: #a78bfa;
+      --ok:#34d399;
+      --radius: 18px;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --max: 1120px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box;}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(110,231,255,.18), transparent 60%),
+        radial-gradient(900px 600px at 85% 25%, rgba(167,139,250,.16), transparent 55%),
+        radial-gradient(900px 700px at 45% 95%, rgba(52,211,153,.10), transparent 55%),
+        var(--bg);
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none;}
+    a:focus-visible{outline:3px solid rgba(110,231,255,.55);outline-offset:3px;border-radius:10px;}
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px 18px 60px;}
+    header{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;backdrop-filter:blur(10px);}
+    .brand{display:flex;align-items:center;gap:10px;min-width:220px;}
+    .dot{width:11px;height:11px;border-radius:99px;background:linear-gradient(135deg, var(--brand), var(--brand2));box-shadow:0 0 0 6px rgba(110,231,255,.09);}
+    nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;}
+    .navlink{padding:9px 12px;border-radius:999px;border:1px solid transparent;color:var(--muted);}
+    .navlink:hover{border-color:var(--line);color:var(--text);background:rgba(255,255,255,.04);}
+
+    .hero{margin-top:18px;padding:28px 22px;border-radius:var(--radius);border:1px solid var(--line);background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));box-shadow:var(--shadow);position:relative;overflow:hidden;}
+    .hero::after{content:"";position:absolute;inset:-2px;background:radial-gradient(500px 220px at 20% 0%, rgba(110,231,255,.16), transparent 60%),radial-gradient(520px 260px at 95% 15%, rgba(167,139,250,.14), transparent 55%);pointer-events:none;}
+    .hero-inner{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:start;}
+    @media (max-width:880px){.hero-inner{grid-template-columns:1fr;}}
+    .kicker{font-family:var(--mono);color:rgba(234,240,255,.78);font-size:13px;letter-spacing:.3px;margin:0 0 10px;}
+    h1{margin:0 0 10px;font-size:clamp(30px,4vw,48px);line-height:1.08;letter-spacing:-.6px;}
+    .subtitle{margin:0;color:var(--muted);font-size:16px;max-width:64ch;}
+    .hero-panel{border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.04);padding:16px;}
+    .hero-panel h2{margin:0 0 10px;font-size:14px;letter-spacing:.4px;text-transform:uppercase;color:rgba(234,240,255,.78);}
+    .skill-list{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0;}
+    .skill-list li{padding:8px 10px;border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;color:rgba(234,240,255,.86);font-size:13px;}
+
+    .section{margin-top:18px;}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-bottom:12px;}
+    .section-head h2{margin:0;font-size:20px;}
+    .section-head p{margin:0;color:var(--muted);font-size:14px;}
+
+    .timeline{display:grid;gap:14px;}
+    .role{border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.04);padding:18px;box-shadow:0 12px 40px rgba(0,0,0,.24);}
+    .role-top{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;}
+    @media (max-width:700px){.role-top{grid-template-columns:1fr;}}
+    .role h3{margin:0 0 4px;font-size:22px;}
+    .meta{color:var(--muted);font-size:14px;}
+    .pill{display:inline-flex;align-items:center;padding:8px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.035);font-family:var(--mono);font-size:12.5px;color:rgba(234,240,255,.85);}
+    .summary{margin:12px 0 14px;color:rgba(234,240,255,.84);max-width:80ch;}
+    .bullets{margin:0;padding-left:18px;color:rgba(234,240,255,.88);}
+    .bullets li{margin:0 0 10px;}
+    .tagrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+    .tag{padding:8px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-size:13px;color:rgba(234,240,255,.84);}
+
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    @media (max-width:880px){.two-col{grid-template-columns:1fr;}}
+    .card{border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.04);padding:18px;box-shadow:0 12px 40px rgba(0,0,0,.24);}
+    .card h3{margin:0 0 10px;font-size:18px;}
+    .card p{margin:0 0 10px;color:var(--muted);}
+    .edu-item{padding:12px 0;border-top:1px solid rgba(234,240,255,.10);}
+    .edu-item:first-of-type{border-top:none;padding-top:0;}
+
+    footer{margin-top:20px;padding-top:14px;border-top:1px solid rgba(234,240,255,.12);color:rgba(234,240,255,.62);font-size:13px;display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header aria-label="Primary">
+      <a class="brand" href="index.html"><span class="dot" aria-hidden="true"></span><b>Maksym Brailovskyi</b></a>
+      <nav aria-label="Site">
+        <a class="navlink" href="index.html">Home</a>
+        <a class="navlink" href="experience.html">Experience</a>
+        <a class="navlink" href="portfolio.html">Portfolio</a>
+        <a class="navlink" href="contact.html">Contact</a>
+        <a class="navlink" href="assets/Maksym-Brailovskyi-Resume.pdf" download>Download PDF</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Experience overview">
+        <div class="hero-inner">
+          <div>
+            <p class="kicker">Experience • Web Development • SEO • Problem Solving • Leadership</p>
+            <h1>Experience that shows how I build, adapt, and deliver.</h1>
+            <p class="subtitle">
+              This page expands on the resume with more context around the work itself: client web development,
+              website recovery and SEO improvement, leadership in a large organization, and fast-paced roles that
+              sharpened communication, reliability, and ownership.
+            </p>
+          </div>
+          <aside class="hero-panel" aria-label="Core strengths">
+            <h2>Core strengths</h2>
+            <ul class="skill-list">
+              <li>WordPress</li>
+              <li>Elementor Pro</li>
+              <li>Responsive Design</li>
+              <li>Accessibility</li>
+              <li>SEO Basics</li>
+              <li>Troubleshooting</li>
+              <li>Documentation</li>
+              <li>Stakeholder Communication</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Professional experience">
+        <div class="section-head">
+          <h2>Relevant experience</h2>
+          <p>Paid, project-based, and leadership experience with clear responsibilities and outcomes.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="role">
+            <div class="role-top">
+              <div>
+                <h3>Junior Web Developer (Contract)</h3>
+                <div class="meta">RRDigital • Maitland, Florida (Remote)</div>
+              </div>
+              <div class="pill">Aug 2025 - Nov 2025</div>
+            </div>
+            <p class="summary">
+              Supported client-facing WordPress work in a delivery-focused environment where consistency,
+              responsiveness, and deadline discipline mattered as much as the visual result.
+            </p>
+            <ul class="bullets">
+              <li>Migrated and restructured legacy client content into WordPress pages using Elementor Pro, ensuring consistent formatting and alignment with brand guidelines.</li>
+              <li>Built and customized pages to match stakeholder requirements while improving usability across desktop, tablet, and mobile devices.</li>
+              <li>Improved on-page structure through clearer header hierarchy, hero sections, and content organization to support accessibility and readability.</li>
+              <li>Collaborated with senior developers and project managers to deliver client updates on deadline in a remote contract environment.</li>
+            </ul>
+            <div class="tagrow">
+              <span class="tag">WordPress</span>
+              <span class="tag">Elementor Pro</span>
+              <span class="tag">Responsive UI</span>
+              <span class="tag">Accessibility</span>
+              <span class="tag">Client Delivery</span>
+            </div>
+          </article>
+
+          <article class="role">
+            <div class="role-top">
+              <div>
+                <h3>Website Recovery & SEO Support</h3>
+                <div class="meta">Small Business Project • Independent / Unpaid Technical Support</div>
+              </div>
+              <div class="pill">Project-Based</div>
+            </div>
+            <p class="summary">
+              This was a practical, high-pressure problem-solving project: restore a business website after a malicious
+              attack, rebuild trust, and improve visibility instead of only putting the site back online.
+            </p>
+            <ul class="bullets">
+              <li>Helped a small business restore its website after a malicious attack disrupted availability and trust.</li>
+              <li>Assisted with recovery steps, strengthened basic security practices, and helped reduce the risk of repeated issues.</li>
+              <li>Optimized SEO structure and on-page content so the business could regain visibility and improve discoverability.</li>
+              <li>Turned a stressful outage into a practical problem-solving project focused on reliability, communication, and measurable improvement.</li>
+            </ul>
+            <div class="tagrow">
+              <span class="tag">Incident Response</span>
+              <span class="tag">Basic Security Practices</span>
+              <span class="tag">SEO Optimization</span>
+              <span class="tag">Website Troubleshooting</span>
+              <span class="tag">Small Business Support</span>
+            </div>
+          </article>
+
+          <article class="role">
+            <div class="role-top">
+              <div>
+                <h3>Ritual Chairman</h3>
+                <div class="meta">Sigma Chi Fraternity, Florida State University</div>
+              </div>
+              <div class="pill">Aug 2023 - Aug 2026</div>
+            </div>
+            <p class="summary">
+              Leadership here meant coordinating people, schedules, materials, and expectations at scale—experience that
+              translates directly into operations, documentation, and dependable team execution.
+            </p>
+            <ul class="bullets">
+              <li>Managed inventory and logistics for chapter regalia and ceremonies supporting a 130+ member organization.</li>
+              <li>Planned events, coordinated timelines, and communicated expectations across stakeholders.</li>
+              <li>Guided more than 50 new members through the post-initiation education process.</li>
+              <li>Strengthened leadership, documentation, and operations skills that translate well to project coordination and IT teamwork.</li>
+            </ul>
+            <div class="tagrow">
+              <span class="tag">Leadership</span>
+              <span class="tag">Operations</span>
+              <span class="tag">Planning</span>
+              <span class="tag">Team Coordination</span>
+              <span class="tag">Communication</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section two-col" aria-label="Additional experience and education">
+        <article class="card">
+          <h3>Additional experience</h3>
+          <p>
+            These roles are not web-focused, but they helped build the pressure management, accuracy, and teamwork that
+            also matter in IT and project delivery.
+          </p>
+          <div class="edu-item">
+            <strong>Team Lead • Maple Street Biscuit Company</strong><br>
+            <span class="meta">Apr 2020 - Aug 2023</span>
+            <ul class="bullets">
+              <li>Led shift execution during peak periods while coaching team members and keeping operations on pace.</li>
+              <li>Supported training and daily workflows to maintain quality, consistency, and accountability.</li>
+              <li>Built transferable strengths in teamwork, time management, and handling pressure without losing attention to detail.</li>
+            </ul>
+          </div>
+          <div class="edu-item">
+            <strong>Food Expeditor • Chili's</strong><br>
+            <span class="meta">Summer 2024</span>
+            <ul class="bullets">
+              <li>Managed high-volume order flow and accuracy in a fast-paced environment.</li>
+              <li>Resolved issues quickly while coordinating between kitchen and front-of-house staff.</li>
+              <li>Developed calm communication and reliability under pressure—skills that carry over to technical support and operations work.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Education & technical background</h3>
+          <div class="edu-item">
+            <strong>Florida State University</strong><br>
+            <span class="meta">B.S. Information Technology and Applied Mathematics</span>
+            <p>
+              Coursework and technical interests support both web delivery and analytical problem-solving, with exposure
+              to programming, databases, networking, and data-oriented tools.
+            </p>
+          </div>
+          <div class="edu-item">
+            <strong>Technical skills</strong>
+            <p>
+              Programming: Python, Java, JavaScript, SQL, C++, HTML, CSS<br>
+              Web/CMS: WordPress, Elementor Pro, Responsive design<br>
+              Data/DB: MySQL, Database administration, Oracle, Data mining & analytics, Data visualization<br>
+              IT/Other: Network administration, UX design, Object-oriented programming, AI Applications
+            </p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2026 Maksym Brailovskyi</span>
+      <span>Experience page for the interactive resume</span>
+    </footer>
+  </div>
+</body>
+</html>
